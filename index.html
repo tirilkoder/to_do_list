@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link href="style.css" rel="stylesheet" />
+    <title>Todo list</title>
+  </head>
+  <body>
+    <header>
+      <h1>Todo List</h1>
+    </header>
+
+    <main>
+      <section>
+          <div class="box">
+            <h2>Todo List</h2>
+            <div class="list_wrapper">
+              <!-- Inntastingsfelt -->
+              <form id="todo_form">
+                <input type="text" id="input_text" />
+              </form>
+              <!-- Knapp som legger til oppgave -->
+              <button class="button" onclick="addTask()">Add</button>
+              <ul id="task_list"></ul>
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+        <p>Laga av Tiril</p>
+    </footer>
+  </body>
+</html>
