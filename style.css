@@ -1,8 +1,27 @@
-:root {
-  --background:  #d9d2e9;  
-  --header: #ffffff96;
-  --box:    #ead1dc; /* #b6d7a8; */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+:root {
+  --background_gradient: #c6bcdf, #fdb9c5;  
+  --header: #ffffff96;
+  --box: #ead1dc;
+  --shadow_1: #0000003d;
+  --shadow_2: #00000030;
+  --button_text: #0f0f0f;
+  --button: #e4b4c9; 
+  --border: #222222;
+  --hover: #d690ae;
+  
+  --h2: #fdb9c5, #e4b4c9;
+  --button_delete: #e4b4c9;
+  --hover_delete:#c96590;
+  --checked: #e4b4c9;
+  --checked_text: #838383;
+  --back_hover_list: #d690ae;
+  --text_hover_list: #ffffff;
+  --stripe_back: #f9f9f9;
+  --stripe_back_2: #fbe7f0;
+  --checked_mark: #fff;
 }
 
 body {
@@ -11,53 +30,144 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: var(--background) ;
+  background-image: linear-gradient(to right, var(--background_gradient));
+  font-family: 'Quicksand', sans-serif; 
 }
-  
+ 
 header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+header ,footer {
   display: flex;
   justify-content: center;
   align-items: center;  
   width: 100%;
+  background-color: var(--header);
 }
 
-.box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /*border: 1px solid green;*/
-  padding: 10px;
-  box-shadow: 0 12px 16px 0 var(--shadow_1), 0 17px 50px 0 var(--shadow_2);
-  background-color: var(--box);
- 
-}
 section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.875em;
+  margin-top: 0;
+  font-size: 1.875em;
+  margin: 0;
+  border-radius: 5px;
+  padding: 10px;
+  background-image: linear-gradient(45deg, var(--h2));
 }
   
 .list_wrapper {
   width: fit-content;
-  /*border: rgb(102, 189, 8) solid 1px; */
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-    
+  box-shadow: 0 12px 16px 0 var(--shadow_1), 0 17px 50px 0 var(--shadow_2);
+  background-color: var(--box);
+  border-radius: 8px;
+  height: 43.75em;
+}
+
+#todo_form {
+  padding: 10px;
 }
 
 #input_text {
   text-align: center;
-  height: 20px;
+  height: 25px;
+  width: 200px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  font-size: 1.25em;
+  font-family: 'Montserrat', sans-serif;
 }
-  
+
+button {
+  cursor: pointer;
+  background-color: var(--button_delete);
+  transition-duration: 0.4s;
+  color: var(--button_text);
+  border-radius: 5px;
+  border: 1px solid var(--border); 
+  font-size: 0.9375em;
+}
+
+button:hover {
+  background-color: var(--hover_delete);
+}
+
+.button_add {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-image: linear-gradient(45deg, var(--h2));
+  transition-duration: 0.4s;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: var(--button_text);
+  border-radius: 8px;
+  width: auto;
+  border: 1.5px solid var(--border);
+}
+
+.button_add:hover {
+  background-image: linear-gradient(45deg, #e4b4c9, #d398b2);
+  color: var(--text);
+  border-radius: 8px;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  background-color: var(--stripe_back);
+  font-size: 1.125em;
+  transition: 0.2s;
+  border-radius: 3px;
+  padding-left: 40px;
+}
+
+ul li:nth-child(odd) {
+  background-color:var(--stripe_back_2) ;
+}
+
+ul li:hover {
+  background-color:var(--back_hover_list) ;
+  color:var(--text_hover_list) ;
+}
+
+ul li.checked {
+  background-color: var(--checked);
+  color: var(--checked_text);
+}
+
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: var(--checked_mark);
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  left: 15px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
 ul {
  padding: 0;
- 
+ font-family: 'Montserrat', sans-serif;
+ width: 400px;
+ margin-top: 10px;
 }
 
 li {
@@ -66,7 +176,14 @@ li {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
   padding: 5px;
-  
   }
+  
+
+/* Responsive opp til mobil */
+@media (max-width: 425px) {
+   
+  ul {
+      width: 300px;
+  }
+}
