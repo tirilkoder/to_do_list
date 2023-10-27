@@ -15,6 +15,8 @@ function addTask() {
         newTask.textContent = inputText.value;
         checkBox.type = "checkbox";
         checkBox.classList = "check";
+        newTask.classList = "list";
+        checkBox.onclick = "checked";
         
         // Legger til elementa vi har laga til nettsida
         taskList.appendChild(newTask);
@@ -28,20 +30,13 @@ function addTask() {
 }
 
 
-// Markerer at oppgaven er utført når den blir klikka på
-list.addEventListener('click', function(event) {
-  if (event.target.tagName === 'LI') {
-    event.target.classList.toggle('checked');
-  }
-}, false);
-
 // Fjerner oppgaven frå oppgavelisten når button blir klikka på
 taskList.addEventListener("click", function(event) {
     event.target.tagName === "BUTTON" && event.target.parentElement.remove()
     saveData();
 });
 
-// Hindrer vanlig virkemåte for skjema innsending og kaller adTask()
+// Hindrer vanlig virkemåte for skjema innsending og lytter til addTask()
 // Vanlig virkemåte for innsending oppdaterer siden, noe vi ikke ønsker. Det fører til bugs
 todoForm.addEventListener("submit", function(event) {
     event.preventDefault();

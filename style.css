@@ -8,11 +8,12 @@
   --shadow_1: #0000003d;
   --shadow_2: #00000030;
   --button_text: #0f0f0f;
-  --button: #e4b4c9; 
+  --button_gradient: #ff8ec1, #ecadc8; 
   --border: #222222;
   --hover: #d690ae;
   
   --h2: #fdb9c5, #e4b4c9;
+  --background_input: #fdecff;
   --button_delete: #e4b4c9;
   --hover_delete:#c96590;
   --checked: #e4b4c9;
@@ -20,8 +21,7 @@
   --back_hover_list: #d690ae;
   --text_hover_list: #ffffff;
   --stripe_back: #f9f9f9;
-  --stripe_back_2: #fbe7f0;
-  --checked_mark: #fff;
+  --stripe_back_2: #fbe7f0; 
 }
 
 body {
@@ -53,7 +53,7 @@ section {
   align-items: center;
   height: 100vh;
   padding-top: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 h2 {
@@ -85,12 +85,15 @@ h2 {
 
 #input_text {
   text-align: center;
-  height: 25px;
-  width: 200px;
-  border-radius: 4px;
+  height: 30px;
+  width: 250px;
+  border-radius: 30px;
   border: 1px solid var(--border);
-  font-size: 1.25em;
+  font-size: 17px;
   font-family: 'Montserrat', sans-serif;
+  flex: 1;
+  outline: none;
+  background-color: var(--background_input);
 }
 
 button {
@@ -101,6 +104,7 @@ button {
   border-radius: 5px;
   border: 1px solid var(--border); 
   font-size: 0.9375em;
+  text-decoration: none;
 }
 
 button:hover {
@@ -122,13 +126,12 @@ button:hover {
 }
 
 .button_add:hover {
-  background-image: linear-gradient(45deg, #e4b4c9, #d398b2);
+  background-image: linear-gradient(45deg, var(--button_gradient));
   color: var(--text);
   border-radius: 8px;
 }
 
 ul li {
-  cursor: pointer;
   position: relative;
   background-color: var(--stripe_back);
   font-size: 1.125em;
@@ -146,21 +149,19 @@ ul li:hover {
   color:var(--text_hover_list) ;
 }
 
-ul li.checked {
-  background-color: var(--checked);
-  color: var(--checked_text);
+ul li.check::before {
+  left: 15px;
+  height: 5px;
+  width: 7px;
 }
 
-ul li.checked::before {
-  content: '';
+.check {
   position: absolute;
-  border-color: var(--checked_mark);
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  left: 15px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
+  top: 3px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
 }
 
 ul {
@@ -176,10 +177,10 @@ li {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
+  padding: 5px; 
   }
-  
 
+  
 /* Responsive opp til mobil */
 @media (max-width: 425px) {
    
